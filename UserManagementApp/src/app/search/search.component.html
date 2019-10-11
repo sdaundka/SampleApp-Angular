@@ -1,0 +1,82 @@
+<div style="width: 450px; margin: 0 auto;">
+    <form #f="ngForm" (ngSubmit)="onSearchUserDetails();">
+    <table>
+    <div class="form-group">
+    <tr>
+      <td><label for="firstName"> First Name </label></td>
+      <td><input type="text" required [(ngModel)]="firstName" name="ufName" class="form-control" width="60px" minlength="3" maxlength="10" />
+      </td>
+    </tr>
+    </div>
+
+
+    <tr>
+      <td colspan="2" align="center">
+        <button name="submit" type="submit">Search</button>
+      </td>
+    </tr>
+
+    <div *ngIf="user != null">
+        <div class="form-group">
+          <tr>
+            <td><label for="firstName"> First Name </label></td>
+            <td><input type="text" value="{{user.firstName}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="lastName"> Last Name </label></td>
+            <td><input type="text" value="{{user.lastName}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="steet"> Street </label></td>
+            <td><input type="text" value="{{user.address.street}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="city"> City </label></td>
+            <td><input type="text" value="{{user.address.city}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="state"> State </label></td>
+            <td><input type="text" value="{{user.address.state}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="postalCode"> Postal Code </label></td>
+            <td><input type="text" value="{{user.address.postalCode}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="mobile"> Mobile </label></td>
+            <td><input type="text" value="{{user.contact.mobile}}"/></td>
+          </tr>
+          </div>
+
+          <div class="form-group">
+          <tr>
+            <td><label for="email"> Email </label></td>
+            <td><input type="text" value="{{user.contact.email}}"/></td>
+          </tr>
+          </div>
+
+    </div>
+    <div *ngIf="user == null && f.touched">
+      User with id {{firstName} does not exist}
+    </div>
+    </table>
+    </form>
+    </div>
